@@ -1,0 +1,59 @@
+### Регистрауция пользователя
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "user2",
+  "email": "user2@user.com",
+  "password": "user"
+}
+
+### Вход пользователя
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "name": "user",
+  "email": "user@user.com",
+  "password": "user"
+}
+
+### Добавление поста
+POST http://localhost:8080/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTVjNDFlZjEzZjFkNjUyNGU0YzRkMCIsIm5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwiaWF0IjoxNjM3MjE4Mjk5LCJleHAiOjE2MzczMDQ2OTl9.pHJyq-V0NMrn5_otU67RbofxiOsTccWifWS_iU4np7k
+
+{
+  "body": "Тело поста"
+}
+
+### список постов
+# GET http://localhost:8080/api/posts?skip=0&limit=5&users=6195c41ef13f1d6524e4c4d0,6195c41ef13f1d6524e4c4d0
+GET http://localhost:8080/api/posts?skip=0&limit=5
+
+### пост по id
+GET http://localhost:8080/api/posts/6195e0f2e54ee89ffd60749a
+
+### Добавление лайка к посту по id конкретного пользователя
+POST http://localhost:8080/api/posts/6195e0f2e54ee89ffd60749a/likes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTVjNDFlZjEzZjFkNjUyNGU0YzRkMCIsIm5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwiaWF0IjoxNjM3MjE4Mjk5LCJleHAiOjE2MzczMDQ2OTl9.pHJyq-V0NMrn5_otU67RbofxiOsTccWifWS_iU4np7k
+
+### Удаление лайка по id
+DELETE http://localhost:8080/api/posts/6195e0f2e54ee89ffd60749a/likes/619612fa7e49c92257b16dd9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTVjNDFlZjEzZjFkNjUyNGU0YzRkMCIsIm5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwiaWF0IjoxNjM3MjE4Mjk5LCJleHAiOjE2MzczMDQ2OTl9.pHJyq-V0NMrn5_otU67RbofxiOsTccWifWS_iU4np7k
+
+### добабляем коментарий
+POST http://localhost:8080/api/posts/6195e0f2e54ee89ffd60749a/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTVjNDFlZjEzZjFkNjUyNGU0YzRkMCIsIm5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwiaWF0IjoxNjM3MjE4Mjk5LCJleHAiOjE2MzczMDQ2OTl9.pHJyq-V0NMrn5_otU67RbofxiOsTccWifWS_iU4np7k
+
+{
+  "body": "Супер коментарий"
+}
+
+### добабляем коментарий
+DELETE http://localhost:8080/api/posts/6195e0f2e54ee89ffd60749a/comments/61961a595f5c658d5a21a8b2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxOTVjNDFlZjEzZjFkNjUyNGU0YzRkMCIsIm5hbWUiOiJ1c2VyIiwiZW1haWwiOiJ1c2VyQHVzZXIuY29tIiwiaWF0IjoxNjM3MjE4Mjk5LCJleHAiOjE2MzczMDQ2OTl9.pHJyq-V0NMrn5_otU67RbofxiOsTccWifWS_iU4np7k
